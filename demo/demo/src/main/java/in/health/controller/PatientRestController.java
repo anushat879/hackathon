@@ -20,7 +20,7 @@ public class PatientRestController {
 	public ResponseEntity<String> createPatientApp(@RequestBody Patient patient) {
 
 		String status = service.createApplication(patient);
-		return new ResponseEntity<>(status, HttpStatus.OK);
+		return new ResponseEntity(status, HttpStatus.OK);
 	}
 
 }
