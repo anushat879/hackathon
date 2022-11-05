@@ -1,41 +1,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <div th:if="${!emps.empty}">
-<h1 style="color: red; text-align: center">Patient Report</h1>
+<h1 style="color: red; text-align: center">All patients Information Report</h1>
 	<table border="1" align="center" bgcolor="cyan">
 		<tr style="color: red">
 			<th>Patient Id</th>
 			<th>Patient Name</th>
+			<th>Gender</th>
+			<th>Email</th>
 						
 		</tr>
 		<tr th:each="e:${emps}" style="color:blue">
 			<td><span th:text=${e.patientId}></span></td>
 			<td><span th:text=${e.fullname}></span></td>
+			<td><span th:text=${e.gender}></span></td>
+			<td><span th:text=${e.email}></span></td>
 			
 			
 		</tr>
 		
 		</table>
 </div>
- <!-- 
-<div th:if="${!emps.empty}">
-	<h1 style="color: red; text-align: center">Patient Report</h1>
-	<table border="1" align="center" bgcolor="cyan">
-		<tr style="color: red">
-			<th>Patient Id</th>
-			<th>Patient Name</th>
-			<th>Patient Age</th>
-			
-		</tr>
-		
-		<tr th:each="e:${emps}" style="color:blue">
-			<td><span th:text=${e.patientId}></span></td>
-			<td><span th:text=${e.fullname}></span></td>
-			<td><span th:text=${e.age}></span></td>
-			
-		</tr>
-
-
-	</table>
-</div>
- -->
