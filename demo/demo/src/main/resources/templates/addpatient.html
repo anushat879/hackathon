@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<center>
+<h1 style="color:red;text-align=center">Patient Registration Form</h1>
+</center>
+
+<form th:action="@{/pt/app}" th:object ="${p}" method="POST">
+<table align="center" bgcolor="cyan">
+<tr>
+<td><label for="fullname">Patient Name::</label></td>
+<td><input type="text" th:field="*{fullname}"  placeholder="name"/></td>
+</tr>
+
+<tr>
+<td><label for="email">Patient Email::</label></td>
+<td><input type="text" th:field="*{email}"/></td>
+</tr>
+<tr>
+<td><label for="Gender">Patient Gender::</label></td>
+<td><input type="text" th:field="*{gender}"/></td>
+</tr>
+<tr>
+<td>Patient phone no::</td>
+<td><input type="text" th:field="*{phno}"/></td>
+</tr>
+
+<tr>
+<td>Patient user name::</td>
+<td><input type="text" th:field="*{userName}"/></td>
+</tr>
+
+<tr>
+<td>Employee Password::</td>
+<td><input type="password" th:field="*{password}"/></td>
+</tr>
+
+<tr>
+<td><input type="submit" vlaue="submit"/></td>
+<td><input type="reset"  vlaue="reset"/></td>
+</tr>
+</table>
+</form>
+</html>

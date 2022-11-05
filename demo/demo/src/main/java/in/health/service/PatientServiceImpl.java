@@ -1,6 +1,7 @@
 package in.health.service;
 
 import java.security.SecureRandom;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,21 @@ public class PatientServiceImpl implements PatientService {
 
 		PatientEntity entity = new PatientEntity();
 		BeanUtils.copyProperties(patient, entity);
-        String pwd = encode(patient.getPassword());
-        entity.setPassword(pwd);
-        System.out.println("password is "+entity.getPassword());
+		String pwd = encode(patient.getPassword());
+		entity.setPassword(pwd);
+		
 		return "Application is Created :" + patientRepo.save(entity).getPatientId();
 	}
-	public String encode(String passWord) {
-	    BCryptPasswordEncoder bCryptPasswordEncoder =
-	            new BCryptPasswordEncoder(10, new SecureRandom());
-	    return bCryptPasswordEncoder.encode(passWord);
 
+	public String encode(String passWord) {
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10, new SecureRandom());
+		return bCryptPasswordEncoder.encode(passWord);
+
+	}
+	public Iterable<PatientEntity> getAllPatients() {
+		
+		Iterable<PatientEntity> p = patientRepo.findAll();
+	
+		return p;
 	}
 }
